@@ -1,40 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Slide 1 -->
+        <section>
+          <h1 class="text-base">Marko for React Developers</h1>
+          <div class="flex justify-center gap-16">
+            <img
+              src="https://raw.githubusercontent.com/marko-js/branding/master/marko-logo-small.png"
+              alt="Marko logo"
+              class="h-[200px]"
+            />
+            <img
+              src="https://static-00.iconduck.com/assets.00/react-original-wordmark-icon-840x1024-vhmauxp6.png"
+              alt="Marko logo"
+              class="h-[200px]"
+            />
+          </div>
+        </section>
+        <!-- Slide 2 -->
+        <section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+              <li>Template engine?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+              <li>Template engine?</li>
+              <li>Server-side rendering?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+              <li>Template engine?</li>
+              <li>Server-side rendering?</li>
+              <li>Client-side rendering?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+              <li>Template engine?</li>
+              <li>Server-side rendering?</li>
+              <li>Client-side rendering?</li>
+              <li>Tacos?</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h2>What is Marko?</h2>
+            <ul>
+              <li>UI library?</li>
+              <li>HTML-based language?</li>
+              <li>Framework?</li>
+              <li>Template engine?</li>
+              <li>Server-side rendering?</li>
+              <li>Client-side rendering?</li>
+              <li>Tacos?</li>
+              <li>Yes, please.</li>
+            </ul>
+          </section>
+        </section>
+        <!-- Slide 3 -->
+        <section>
+          <img src="dist/images/marko.png" />
+        </section>
+        <!-- Slide 4 -->
+        <section>
+          <section>
+            <h2>JavaScript Expressions</h2>
+          </section>
+          <section>
+            <h2>JSX</h2>
+            <pre><code data-trim>
+							export default function App() {
+							  const name = "Front End friends";
+							  return <div>Hello {name}</div>;
+							}
+						</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							$ const name = "Front End friends";
+							<h1>Hello ${name}</h1>
+							</code></pre>
+          </section>
+        </section>
+        <!-- Slide 5 -->
+        <section>
+          <section>
+            <h2>Control flow</h2>
+          </section>
+          <section>
+            <h2>JSX</h2>
+            <pre><code data-trim>
+							export default function App() {
+								const places = ["Rome", "Rio", "Melbourne", "Bogota"];
+								return (
+									<ul>
+										{places.map((place) => (
+											<li>{place}</li>
+										))}
+									</ul>
+								);
+							}
+						</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code><script type="text/template">
+	$ const places = ["Rome", "Rio", "Melbourne", "Bogota"];
+	<ul>
+	  <for|place| of=places>
+	    <li>${place}</li>
+	  </for>
+	</ul>
+						</script></code></pre>
+          </section>
+        </section>
+        <!-- Slide 6 -->
+        <section>
+          <section>
+            <h2>Children & Composition</h2>
+          </section>
+          <section>
+            <h2>JSX</h2>
+            <pre><code data-trim>
+							const Wrapper = ({ children }) => <div>Hello {children}</div>;
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+							export default function App() {
+							  const name = "Rome2Rio";
+							  return <Wrapper>{name}</Wrapper>;
+							}
+						</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code><script type="text/template">
+  <!-- wrapper.marko -->
+	<h1>
+		Hello <{input.renderBody}/>
+	</h1>
+	<!-- +page.marko -->
+	$ const name = "Rome2Rio";
+	<wrapper>${name}</wrapper>
+						</script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code><script type="text/template">
+  <!-- wrapper.marko -->
+	export interface Input {
+		renderBody?: Marko.Body;
+	}
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+	<h1>
+		Hello <{input.renderBody}/>
+	</h1>
+	<!-- +page.marko -->
+	$ const name = "Rome2Rio";
+	<wrapper>${name}</wrapper>
+						</script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code><script type="text/template">
+  <!-- common-layout.marko -->
+	export interface Input {
+		head?: Marko.AttrTag<{ renderBody: Marko.Body }>;
+		body: Marko.AttrTag<{ renderBody: Marko.Body; class?: string }>;
+	}
+	<!doctype html>
+	<html>
+		<head>
+			<${input.head} />
+		</head>
+		<body class=(input.body.class)>
+			<common-debug-menu />
+			<${input.body} />
+		</body>
+	</html>
+	<!-- +page.marko -->
+	<common-layout>
+		<@head>
+			<!-- insert your head -->
+		</@head>
+		<@body class="bg-[#f5f5f6]">
+			<!-- insert your body -->
+		</@body>
+	</common-layout>
+						</script></code></pre>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
