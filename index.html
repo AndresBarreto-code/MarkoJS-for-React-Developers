@@ -225,6 +225,22 @@ It does not contain any right angle brackets (>) -->
           <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code><script type="text/template">
+  <!-- wrapper.marko -->
+	export interface Input {
+		name: string;
+	}
+
+	<h1>
+		Hello ${input.name}
+	</h1>
+	<!-- +page.marko -->
+	$ const name = "Rome2Rio";
+	<wrapper name=${name}/>
+						</script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code><script type="text/template">
   <!-- common-layout.marko -->
 	export interface Input {
 		head?: Marko.AttrTag<{ renderBody: Marko.Body }>;
@@ -256,7 +272,7 @@ It does not contain any right angle brackets (>) -->
         <!-- Slide 9 - TODO: ASYNC methos and API calls https://markojs.com/docs/core-tags/#await-->
         <section>
           <section>
-            <h2>JavaScript Expressions</h2>
+            <h2>API calls</h2>
           </section>
           <section>
             <h2>JSX</h2>
