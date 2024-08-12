@@ -269,7 +269,7 @@ It does not contain any right angle brackets (>) -->
           </section>
         </section>
 
-        <!-- Slide 9 - TODO: ASYNC methos and API calls https://markojs.com/docs/core-tags/#await-->
+        <!-- Slide 9 - https://markojs.com/docs/core-tags/#await -->
         <section>
           <section>
             <h2>API calls</h2>
@@ -277,18 +277,97 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>JSX</h2>
             <pre><code data-trim>
-							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
-							}
+							const hotelsInfoResult = useQuery<HotelInfoResponse>(
+								[
+									'hotelInfo',
+									hotelId,
+									provider,
+									languageCode,
+									currencyCode,
+									arrivalDate ?? defaultCheckIn,
+									departureDate ?? defaultCheckOut,
+									roomDetails,
+								],
+								async () => {
+									return hitHotelInfoEndpoint(
+										config,
+										requestId,
+										hotelId,
+										languageCode,
+										currencyCode,
+										provider,
+										arrivalDate ?? defaultCheckIn,
+										departureDate ?? defaultCheckOut,
+										filteredRoomDetails
+									)
+								},
+								{
+									enabled,
+									cacheTime: FIFTEEN_MINUTES_IN_MILLISECONDS,
+									staleTime: FIFTEEN_MINUTES_IN_MILLISECONDS,
+								}
+							)
 						</code></pre>
           </section>
           <section>
             <h2>Marko</h2>
-            <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+            <pre><code data-trim data-auto-animate><script type="text/template">
+							<!-- loafPlace.ts -->
+							static async function loadPlaces(
+								context: MarkoRun.Context,
+							): Promise<[PagePlace, PagePlace]> {
+								const [origin, destination] = await fetch(...);
+
+								return [origin, destination];
+							}
+							<!-- +page.marko -->
+							$ const placesRequest = loadPlaces($global);
+							<!-- ... -->
+							<await(placesRequest)>
+								<@then|[origin, destination]: [PagePlace, PagePlace]|>
+									<setup-popunder
+										originCanonical=(origin.canonicalTranslations.en)
+										destinationCanonical=(destination.canonicalTranslations.en)
+									/>
+								</@then>
+							</await>
+						</script>
+
 							</code></pre>
+          </section>
+					<section>
+            <h2>Marko</h2>
+            <pre><code data-trim data-auto-animate><script type="text/template">
+	<await(placesRequest)>
+    <@then|[origin, destination]: [PagePlace, PagePlace]|>
+      ...
+    </@then>
+		<@catch|err|>
+    	<!-- Render some error message -->
+    	<!--  Log the error to Sentry -->
+  	</@catch>
+  </await>
+						</script></code></pre>
+          </section>
+					<section>
+            <h2>Marko</h2>
+            <pre><code data-trim data-auto-animate><script type="text/template">
+	<await(placesRequest) client-reorder>
+    <@then|[origin, destination]: [PagePlace, PagePlace]|>
+      ...
+    </@then>
+		<@catch|err|>
+    	<!-- Render some error message -->
+    	<!--  Log the error to Sentry -->
+  	</@catch>
+		<@placeholder>
+    	<!-- Displays while promise is pending -->
+    	<label>Loading…
+      	<progress></progress>
+    	</label>
+  	</@placeholder>
+  </await>
+						</script></code></pre>
           </section>
         </section>
 
@@ -309,8 +388,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -332,8 +410,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -355,8 +432,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -378,8 +454,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -401,8 +476,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -424,8 +498,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
@@ -447,8 +520,7 @@ It does not contain any right angle brackets (>) -->
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<script type="text/template"></script>
 							</code></pre>
           </section>
         </section>
