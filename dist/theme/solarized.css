@@ -212,7 +212,6 @@ html * {
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
   font-size: 0.55em;
@@ -232,7 +231,7 @@ html * {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 500px;
   word-wrap: normal;
 }
 
