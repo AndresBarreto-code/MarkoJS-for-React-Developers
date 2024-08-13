@@ -763,6 +763,85 @@ $ const MyTag = href ? 'a' : CustomComponentImported;
           </section>
         </section>
 
+        <!-- Slide 10 -->
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Lifecycle</h2>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+class {
+  onCreate(input, out) { }
+  onInput(input, out) { }
+  onRender(out) { }
+  onMount() { }
+  onUpdate() { }
+  onDestroy() { }
+}
+						</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+<lifecycle
+  onCreate(input, out) { ... }
+  onInput(input, out) { ... }
+  onRender(out) { ... }
+  onMount() { ... }
+  onUpdate() { ... }
+  onDestroy() { ... }
+/>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim data-line-numbers="1-37|19|11-14|19-37">
+							<script type="text/template">
+<!-- sojern-pixel.marko -->
+<!-- imports -->
+export interface Input {
+  origin: SojernPlace;
+  destination: SojernPlace;
+  pageType: SojernPageType;
+}
+static const SOJERN_CONSENT_PURPOSES_REQUIRED = [1, 3, 5];
+static const SOJERN_LEGITIMATE_INTEREST_PURPOSES_REQUIRED: number[] = [];
+
+<consent-status/status
+  consentPurposesRequired=SOJERN_CONSENT_PURPOSES_REQUIRED
+  legitimateInterestPurposesRequired=SOJERN_LEGITIMATE_INTEREST_PURPOSES_REQUIRED
+/>
+
+<let/loadCount=1 />
+<let/triggerCount=1 />
+
+<if=(status === "given")>
+  <lifecycle
+    onMount() {
+      sendEvent(...);
+      triggerCount += 1;
+    }
+  />
+
+  <const/url=buildSojernUrl({
+    origin: input.origin,
+    ...
+    currencyCode: $global.featureConfig.CurrencyCode,
+  }) />
+
+  <iframe
+    style="display:none"
+    ...
+  ></iframe>
+</if>
+              </script>
+							</code></pre>
+          </section>
+        </section>
+
         <!-- Slide 10 - TODO: Routes, components, etc -->
         <section data-auto-animate>
           <section data-auto-animate>
