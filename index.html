@@ -726,24 +726,39 @@ const App = () => (
           </section>
         </section>
 
-        <!-- Slide 11 - TODO: Dynamic tagname -->
+        <!-- Slide 11 -->
         <section data-auto-animate>
           <section data-auto-animate>
-            <h2>JavaScript Expressions</h2>
-          </section>
-          <section data-auto-animate>
-            <h2>JSX</h2>
-            <pre><code data-trim>
-							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
-							}
-						</code></pre>
+            <h2>Dynamic tagname</h2>
           </section>
           <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
-							<script type="text/template"></script>
+							<script type="text/template">
+<${href ? 'a' : 'button'} href=href>
+  Click me!
+</>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+$ const MyTag = href ? 'a' : 'button';
+<${MyTag}/>
+<MyTag/>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+import CustomComponentImported from "<custom-component>";
+$ const MyTag = href ? 'a' : CustomComponentImported;
+<MyTag/>
+              </script>
 							</code></pre>
           </section>
         </section>
