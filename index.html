@@ -477,21 +477,95 @@ class {
         <!-- Slide 7 - TODO: State -->
         <section>
           <section>
-            <h2>JavaScript Expressions</h2>
+            <h2>Stateful components</h2>
           </section>
           <section>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
+                const [count, setCount] = useState(0);
+                return (
+                  <div>
+                    The current count is {count}
+                    <button onClick={() => setCount(count + 1)}>++</button>
+                  </div>
+                );
 							}
 						</code></pre>
           </section>
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							<script type="text/template"></script>
+							<script type="text/template">
+class {
+  onCreate() {
+    this.state = { count:0 };
+  }
+  increment() {
+    this.state.count++;
+  }
+}
+
+<div>
+  The current count is ${state.count}
+  <button on-click('increment')>++</button>
+</div>
+              </script>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+<let/count=0/>
+<p>You clicked ${count} times</p>
+<button onClick() { count++; }>
+  Click me
+</button>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+<let/count=0/>
+<let/doubleCount=count * 2/>
+<p>You clicked ${count} times</p>
+<p>Double count: ${doubleCount}</p>
+<button onClick() { count++; }>
+  Click me
+</button>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2><span class="absolute top-1/2 left-1/2 z-10">❌</span>
+            <pre><code data-trim>
+							<script type="text/template">
+<let/count=0/>
+<let/doubleCount=count * 2/>
+<p>You clicked ${count} times</p>
+<p>Double count: ${doubleCount}</p>
+<button onClick() { count++; }>
+  Click me
+</button>
+              </script>
+							</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <span class="absolute top-1/2 left-1/2 z-10">✅</span>
+            <pre><code data-trim>
+							<script type="text/template">
+<let/count=0/>
+<const/doubleCount=count * 2/>
+<p>You clicked ${count} times</p>
+<p>Double count: ${doubleCount}</p>
+<button onClick() { count++; }>
+  Click me
+</button>
+              </script>
 							</code></pre>
           </section>
         </section>
@@ -505,8 +579,8 @@ class {
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
+                const name = "Front End friends";
+                return <div>Hello {name}</div>;
 							}
 						</code></pre>
           </section>
