@@ -20,7 +20,7 @@
     <div class="reveal">
       <div class="slides">
         <!-- Slide 1 -->
-        <section>
+        <section data-auto-animate>
           <h1 class="text-base">Marko for React Developers</h1>
           <div class="flex justify-center gap-16">
             <img
@@ -36,7 +36,7 @@
           </div>
         </section>
         <!-- Slide 2 -->
-        <section>
+        <section data-auto-animate>
           <section data-auto-animate>
             <h2>What is Marko?</h2>
             <ul>
@@ -115,7 +115,7 @@
           </section>
         </section>
         <!-- Slide 2 -->
-        <section>
+        <section data-auto-animate>
           <section data-auto-animate>
             <h2>Angus' previous presentations</h2>
             <ul>
@@ -141,15 +141,15 @@
           </section>
         </section>
         <!-- Slide 3 -->
-        <section>
+        <section data-auto-animate>
           <img src="dist/images/marko.png" />
         </section>
         <!-- Slide 4 -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>JavaScript Expressions</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -158,14 +158,14 @@
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							$ const name = "Front End friends";
 							<p>Hello ${name}</p>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<p>1 + 1 ${1 + 1}</p>
@@ -173,11 +173,11 @@
           </section>
         </section>
         <!-- Slide 5 -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>Control flow</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -192,7 +192,7 @@
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code><script type="text/template">
 	$ const places = ["Rome", "Rio", "Melbourne", "Bogota"];
@@ -206,11 +206,11 @@
         </section>
 
         <!-- Slide 6 -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>Children & Composition</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							const Wrapper = ({ children }) => <div>Hello {children}</div>;
@@ -308,11 +308,11 @@
         </section>
 
         <!-- Slide 9 - https://markojs.com/docs/core-tags/#await -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>API calls</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim><script type="text/template">
 							const hotelsInfoResult = useQuery<HotelInfoResponse>(
@@ -337,7 +337,7 @@
 							)
               </script></code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 							<!-- loafPlace.ts -->
@@ -361,7 +361,7 @@
 
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 	<await(placesRequest)>
@@ -375,7 +375,7 @@
   </await>
 						</script></code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 	<await(placesRequest) client-reorder>
@@ -394,12 +394,12 @@
         </section>
 
         <!-- Slide 8 - TODO: Events -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>Events</h2>
             <p>on-* attributes</p>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -409,7 +409,7 @@
               </script>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -424,7 +424,7 @@ static function handleClick(event) {
               </script>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -434,7 +434,7 @@ static function handleClick(event) {
               </script>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -451,7 +451,7 @@ static function removeFriend(friendId, event) {
               </script>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim data-line-numbers="1-14|5|13">
 							<script type="text/template">
@@ -475,11 +475,11 @@ class {
         </section>
 
         <!-- Slide 7 -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>Stateful components</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -493,7 +493,7 @@ class {
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -513,7 +513,7 @@ class {
               </script>
 							</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template">
@@ -590,11 +590,11 @@ class {
         </section>
 
         <!-- Slide 7 -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>Custom Hooks</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim><script type="text/template">
 export function useIsInViewport(
@@ -636,7 +636,7 @@ export function useIsInViewport(
 }
             </script></code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim data-line-numbers="1-28|3-4|7|9-21|11|22|24-26">
 							<script type="text/template">
@@ -672,34 +672,66 @@ export interface Input {
           </section>
         </section>
 
-        <!-- Slide 7 - TODO: HOC vs https://markojs.com/docs/body-content/#passing-attributes-to-body-content -->
-        <section>
-          <section>
-            <h2>JavaScript Expressions</h2>
+        <!-- Slide 7 -->
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>HOC / Children to Parent</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
-							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
-							}
+const App = ({ mouse:{ x, y } }) => (
+  <h1>The mouse position is ({x}, {y})</h1>
+);
+const AppWithMouse = withMouse(App)
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
+            <h2>JSX</h2>
+            <pre><code data-trim><script type="text/template">
+const App = () => (
+  <Mouse render={({ x, y }) => (
+    <h1>The mouse position is ({x}, {y})</h1>
+  )/>
+);
+</script></code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>JSX</h2>
+            <pre><code data-trim><script type="text/template">
+const App = () => (
+  <Mouse>
+    {
+      ({ x, y }) => (
+        <h1>The mouse position is ({x}, {y})</h1>
+      )
+    }
+  </Mouse>
+);
+</script></code></pre>
+          </section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
-							<script type="text/template"></script>
+							<script type="text/template">
+<!-- mouse.marko -->
+<!-- ...All the logic -->
+<${input.renderBody} x=x y=y/>
+<!-- +page.marko -->
+<mouse|{ x, y }|>
+  <h1>The mouse position is (${x}, ${y})</h1>
+</mouse>
+              </script>
 							</code></pre>
           </section>
         </section>
 
         <!-- Slide 11 - TODO: Dynamic tagname -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>JavaScript Expressions</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -708,7 +740,7 @@ export interface Input {
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template"></script>
@@ -717,11 +749,11 @@ export interface Input {
         </section>
 
         <!-- Slide 10 - TODO: Routes, components, etc -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>JavaScript Expressions</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -730,7 +762,7 @@ export interface Input {
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template"></script>
@@ -739,11 +771,11 @@ export interface Input {
         </section>
 
         <!-- Slide 12 - TODO: END -->
-        <section>
-          <section>
+        <section data-auto-animate>
+          <section data-auto-animate>
             <h2>JavaScript Expressions</h2>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>JSX</h2>
             <pre><code data-trim>
 							export default function App() {
@@ -752,7 +784,7 @@ export interface Input {
 							}
 						</code></pre>
           </section>
-          <section>
+          <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code data-trim>
 							<script type="text/template"></script>
