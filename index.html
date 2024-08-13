@@ -474,7 +474,7 @@ class {
           </section>
         </section>
 
-        <!-- Slide 7 - TODO: State -->
+        <!-- Slide 7 -->
         <section>
           <section>
             <h2>Stateful components</h2>
@@ -589,24 +589,85 @@ class {
           </section>
         </section>
 
-        <!-- Slide 7 - TODO: Hooks -->
+        <!-- Slide 7 -->
         <section>
           <section>
-            <h2>JavaScript Expressions</h2>
+            <h2>Custom Hooks</h2>
           </section>
           <section>
             <h2>JSX</h2>
-            <pre><code data-trim>
-							export default function App() {
-                const name = "Front End friends";
-                return <div>Hello {name}</div>;
-							}
-						</code></pre>
+            <pre><code data-trim><script type="text/template">
+export function useIsInViewport(
+  ref: MutableRefObject<HTMLElement | null>,
+  threshold?: number, //between 0 and 1
+  baseOffset?: number
+) {
+  const [isIntersecting, setIsIntersecting] = useState(false)
+
+  useEffect(() => {
+    // If we don't have access to IntersectionObserver in older browsers or tests.
+    if (
+      !('IntersectionObserver' in window) ||
+      !('IntersectionObserverEntry' in window) ||
+      !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
+    ) {
+      return
+    }
+
+    const rootMarginString = `0px 0px -${baseOffset ? baseOffset : 0}px 0px`
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsIntersecting(entry.isIntersecting),
+      {
+        threshold: threshold ?? 0,
+        rootMargin: rootMarginString,
+      }
+    )
+    if (ref && ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [ref, threshold, baseOffset])
+
+  return isIntersecting
+}
+            </script></code></pre>
           </section>
           <section>
             <h2>Marko</h2>
-            <pre><code data-trim>
-							<script type="text/template"></script>
+            <pre><code data-trim data-line-numbers="1-28|3-4|7|9-21|11|22|24-26">
+							<script type="text/template">
+<!-- is-in-viewport.marko -->
+export interface Input {
+  readonly target: () => Element;
+  readonly threshold?: number;
+}
+
+<let<boolean | undefined>/isIntersecting=undefined />
+
+<effect() {
+  function handleIntersection([entry]: IntersectionObserverEntry[]) {
+    isIntersecting = entry.isIntersecting;
+  }
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: input.threshold ?? 0,
+  });
+  observer.observe(input.target());
+
+  return () => {
+    observer.disconnect();
+  };
+} />
+<return=isIntersecting />
+
+<!-- +page.marko -->
+<div/bottomPixel class="absolute bottom-0 h-full"></div>
+<is-in-viewport/headerVisible target=bottomPixel />
+
+              </script>
 							</code></pre>
           </section>
         </section>
