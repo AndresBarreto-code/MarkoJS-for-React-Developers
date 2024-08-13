@@ -568,6 +568,25 @@ class {
               </script>
 							</code></pre>
           </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <span class="absolute top-1/2 left-1/2 z-10">✅</span>
+            <pre><code data-trim>
+							<script type="text/template">
+<let/count=0/>
+<let/doubleCount=0/>
+<effect() { doubleCount = count * 2; }/>
+<p>You clicked ${count} times</p>
+<p>Double count: ${doubleCount}</p>
+<button onClick() { count++; }>
+  +1
+</button>
+<button onClick() { doubleCount += 2; }>
+  +2 (this only hits doubleCount)
+</button>
+              </script>
+							</code></pre>
+          </section>
         </section>
 
         <!-- Slide 7 - TODO: Hooks -->
