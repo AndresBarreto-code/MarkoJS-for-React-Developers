@@ -114,6 +114,32 @@
             </ul>
           </section>
         </section>
+        <!-- Slide 2 -->
+        <section>
+          <section data-auto-animate>
+            <h2>Angus' previous presentations</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://docs.google.com/presentation/d/1nZyYYIn2yXpdTbfxMujzRY7C8y3riEEsFh0W_890qy4/edit#slide=id.g20a58c108b4_0_10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Frontend Frameworks
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.google.com/presentation/d/1nZyYYIn2yXpdTbfxMujzRY7C8y3riEEsFh0W_890qy4/edit#slide=id.g20a58c108b4_0_10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Performant Frontend Frameworks
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section>
         <!-- Slide 3 -->
         <section>
           <img src="dist/images/marko.png" />
@@ -136,7 +162,13 @@
             <h2>Marko</h2>
             <pre><code data-trim>
 							$ const name = "Front End friends";
-							<h1>Hello ${name}</h1>
+							<p>Hello ${name}</p>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<p>1 + 1 ${1 + 1}</p>
 							</code></pre>
           </section>
         </section>
@@ -201,11 +233,6 @@
 	<wrapper>${name}</wrapper>
 						</script></code></pre>
           </section>
-          <!-- Any JavaScript expression is a valid attribute value, provided it meets the following criteria:
-
-It does not contain any spaces
-
-It does not contain any right angle brackets (>) -->
           <section data-auto-animate>
             <h2>Marko</h2>
             <pre><code><script type="text/template">
@@ -267,6 +294,17 @@ It does not contain any right angle brackets (>) -->
 	</common-layout>
 						</script></code></pre>
           </section>
+          <section data-auto-animate>
+            <h2>Marko</h2>
+            <pre><code>
+  <ul>
+    <p>Any JavaScript expression is a valid attribute value,
+      provided it meets the following criteria:</p>
+    <li>It does not contain any spaces</li>
+    <li>It does not contain any right angle brackets (>)</li>
+  </ul>
+						</code></pre>
+          </section>
         </section>
 
         <!-- Slide 9 - https://markojs.com/docs/core-tags/#await -->
@@ -276,28 +314,18 @@ It does not contain any right angle brackets (>) -->
           </section>
           <section>
             <h2>JSX</h2>
-            <pre><code data-trim>
+            <pre><code data-trim><script type="text/template">
 							const hotelsInfoResult = useQuery<HotelInfoResponse>(
 								[
 									'hotelInfo',
-									hotelId,
-									provider,
-									languageCode,
-									currencyCode,
-									arrivalDate ?? defaultCheckIn,
-									departureDate ?? defaultCheckOut,
+									...
 									roomDetails,
 								],
 								async () => {
 									return hitHotelInfoEndpoint(
 										config,
 										requestId,
-										hotelId,
-										languageCode,
-										currencyCode,
-										provider,
-										arrivalDate ?? defaultCheckIn,
-										departureDate ?? defaultCheckOut,
+										...
 										filteredRoomDetails
 									)
 								},
@@ -307,24 +335,22 @@ It does not contain any right angle brackets (>) -->
 									staleTime: FIFTEEN_MINUTES_IN_MILLISECONDS,
 								}
 							)
-						</code></pre>
+              </script></code></pre>
           </section>
           <section>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 							<!-- loafPlace.ts -->
-							static async function loadPlaces(
-								context: MarkoRun.Context,
-							): Promise<[PagePlace, PagePlace]> {
-								const [origin, destination] = await fetch(...);
+							static async function loadPlace(props: SomeProps): Promise<PagePlace> {
+								const response = await fetch(...);
 
-								return [origin, destination];
+								return response;
 							}
 							<!-- +page.marko -->
 							$ const placesRequest = loadPlaces($global);
 							<!-- ... -->
 							<await(placesRequest)>
-								<@then|[origin, destination]: [PagePlace, PagePlace]|>
+								<@then|[origin, destination]: PagePlace|>
 									<setup-popunder
 										originCanonical=(origin.canonicalTranslations.en)
 										destinationCanonical=(destination.canonicalTranslations.en)
@@ -335,11 +361,11 @@ It does not contain any right angle brackets (>) -->
 
 							</code></pre>
           </section>
-					<section>
+          <section>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 	<await(placesRequest)>
-    <@then|[origin, destination]: [PagePlace, PagePlace]|>
+    <@then|[origin, destination]: PagePlace|>
       ...
     </@then>
 		<@catch|err|>
@@ -349,17 +375,13 @@ It does not contain any right angle brackets (>) -->
   </await>
 						</script></code></pre>
           </section>
-					<section>
+          <section>
             <h2>Marko</h2>
             <pre><code data-trim data-auto-animate><script type="text/template">
 	<await(placesRequest) client-reorder>
-    <@then|[origin, destination]: [PagePlace, PagePlace]|>
+    <@then|[origin, destination]: PagePlace|>
       ...
     </@then>
-		<@catch|err|>
-    	<!-- Render some error message -->
-    	<!--  Log the error to Sentry -->
-  	</@catch>
 		<@placeholder>
     	<!-- Displays while promise is pending -->
     	<label>Loading…
@@ -374,21 +396,80 @@ It does not contain any right angle brackets (>) -->
         <!-- Slide 8 - TODO: Events -->
         <section>
           <section>
-            <h2>JavaScript Expressions</h2>
-          </section>
-          <section>
-            <h2>JSX</h2>
-            <pre><code data-trim>
-							export default function App() {
-							  const name = "Front End friends";
-							  return <div>Hello {name}</div>;
-							}
-						</code></pre>
+            <h2>Events</h2>
+            <p>on-* attributes</p>
           </section>
           <section>
             <h2>Marko</h2>
             <pre><code data-trim>
-							<script type="text/template"></script>
+							<script type="text/template">
+<input type="checkbox"
+  on-change(event => console.info(`Checked? ${event.target.checked}`))
+/>
+              </script>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+static function handleClick(event) {
+  event.preventDefault();
+  console.log("Clicked!");
+}
+
+<button on-click(handleClick)>
+  Log click
+</button>
+              </script>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+<button on-click(() => alert("Clicked! 🎉"))>
+  Celebrate click
+</button>
+              </script>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim>
+							<script type="text/template">
+static function removeFriend(friendId, event) {
+  event.preventDefault();
+  window.myAPI.unfriend(friendId);
+}
+
+<for|friend| of=input.friends>
+  <button on-click(removeFriend, friend.id)>
+    Unfriend ${friend.name}
+  </button>
+</for>
+              </script>
+							</code></pre>
+          </section>
+          <section>
+            <h2>Marko</h2>
+            <pre><code data-trim data-line-numbers="1-14|5|13">
+							<script type="text/template">
+<!-- email-input.marko -->
+class {
+  handleChange(event) {
+    if (event.target.validity.valid) {
+      this.emit("email-change", { email: event.target.value });
+    }
+  }
+}
+
+<input type="email" name=input.name on-change("handleChange")/>
+<!-- +page.marko -->
+<form>
+  <email-input name="email" on-email-change("...")/>
+</form>
+              </script>
 							</code></pre>
           </section>
         </section>
@@ -481,7 +562,7 @@ It does not contain any right angle brackets (>) -->
           </section>
         </section>
 
-				<!-- Slide 10 - TODO: Routes, components, etc -->
+        <!-- Slide 10 - TODO: Routes, components, etc -->
         <section>
           <section>
             <h2>JavaScript Expressions</h2>
